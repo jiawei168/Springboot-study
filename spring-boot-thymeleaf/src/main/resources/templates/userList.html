@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .main{
+            width: 80%;
+            height: 520px;
+            /*background-color: #ff8500;*/
+            margin: 0 10%;
+            border-radius: 12px;
+            border:1px solid #d7d7d7;
+        }
+        h1{
+            height: 120px;
+            text-align:center;
+            padding-top: 90px;
+        }
+        th{
+            background-color: #e0e0e0;
+            width:120px;
+            height: 36px;
+
+        }
+        table{
+            border-collapse: collapse;
+            width: 90%;
+            margin-left:5%
+            /*//border-collapse是设置表格的行<tr>或<td>之间是否留有距离的样式，*/
+        }
+        td{
+            width:120px;
+            height: 50px;
+            text-align:center;
+            /*valian:middle;*/
+        }
+        form{
+            margin-left:5%;
+            margin-top: 10%;
+        }
+        input{
+            height: 32px;
+            width: 260px;
+        }
+        button{
+            background-color: cornflowerblue;
+            height: 32px;
+            color:white;
+        }
+        li{
+            text-align: center;
+            list-style: none;
+            height: 32px;
+            border-bottom:1px solid #D7D1D1FF;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h1>用户列表</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>电子邮件</th>
+        </tr>
+        <tr>
+            <td> <li th:each="user:${users}">
+                <span th:text="${ user.id}" ></span>
+            </li></td>
+            <td>
+                <li th:each="user:${users}">
+                    <span th:text="${ user.name}" ></span>
+                </li>
+            </td>
+            <td>
+                <li th:each="user:${users}">
+                    <span th:text="${ user.email}" ></span>
+                </li>
+           </td>
+        </tr>
+    </table>
+    <form action="addUser" method="post">
+        <input type="text" name="name" placeholder="请输入用户姓名" id="name">
+        <input type="text" name="email" placeholder="请输入电子邮件" id="email">
+        <button type="submit">添加用户</button>
+    </form>
+</div>
+</body>
+</html>

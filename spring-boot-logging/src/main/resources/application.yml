@@ -1,0 +1,21 @@
+logging:
+  file:
+    name: ./logs/springBoot.log
+
+  level:
+    root: info
+    controller: debug
+    tomcat: ERROR
+    web: INFO
+
+  logback:
+    rollingpolicy:
+      max-file-size: 1KB
+      max-history: 10
+
+  pattern:
+    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'
+
+  group:
+    tomcat: org.apache.catalina,org.apache.coyote,org.apache.tomcat
